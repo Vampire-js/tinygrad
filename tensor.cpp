@@ -296,7 +296,7 @@ int main() {
   std::cout << "Test 19\n";
   Tensor reshaped_tensor({2,3}, {1,2,3,4,5,6});
   reshaped_tensor.reshape({3,2});
-  assert(reshaped_tensor.at({0,2}) == 3);
+  assert(reshaped_tensor.at({0,1}) == 2);
 
   std::cout << "Success!\n";
   return 0;
