@@ -20,6 +20,7 @@ enum class Operation {
     multiply
 };
 
+
 struct Node {
     double data = 0.0; // result of forward computation
     double grad = 0.0; // relative change in loss wrt current node
