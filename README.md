@@ -17,7 +17,13 @@
 
        7.884701188 seconds time elapsed
 ```
-So well, big misconception is that tiling is done to solve the cache problem, but actually there is no cache problem, CPU prefetching is good enough hence we anyway's dont get many L1 misses.
+So well, big misconception is that tiling is done to solve the cache problem, but actually there is no cache problem
+$$
+10308036*100/15121777556 = 0.068166827\% \newline 
+Does\space that\space number\space seem\space like\space a\space problem?
+$$
+
+CPU prefetching is good enough hence we anyway's dont get many L1 misses.
 
 For this test, we have $2^{20}$ number's being streamed (each row from A). So that is:
 $$
