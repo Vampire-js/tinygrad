@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(VampireGrad
     src/main.cpp
     src/tensor.cpp
+    src/matmul.cpp
 )
 
 target_include_directories(VampireGrad PRIVATE
