@@ -33,3 +33,18 @@ So technically it doesn't fit in L1 at all, but as these are sequential accesses
 
 So, why would I need a tiling based optimisation now? Well for B (or even A) we still need to go down to lower cache levels, or even DRAM. So question is can we potentially avoid that too.
 
+
+## Tiling
+$$
+A \in R^{M\times K} ,B \in R^{K\times N}
+$$
+For naive, number of fetches:
+$$
+(k+k)*m*n = 2mnk
+$$
+For tiling based:
+_b rows of size k_
+$$
+So,
+(m/b)*(n/b)*(2bk) = 2mnk/b \space fetches
+$$

@@ -1,6 +1,6 @@
 #include <iostream>
 #include "tensor.h"
-#include "matmul.h"
+#include "matmul_gpu.h"
 
 int main()
 {
@@ -14,7 +14,14 @@ int main()
         {7, 8,
          9, 10,
          11, 12});
-         Tensor C = matmul(A, B);
-         std::cout << C.at({1,1}) << std::endl;
+    Tensor C(
+        {2, 2},
+        {0, 0,
+         0, 0});
+
+    matmul_gpu(A, B, C);
+
+    std::cout << C.at({0, 0}) << ' ' << C.at({0, 1}) << '\n';
+    std::cout << C.at({1, 0}) << ' ' << C.at({1, 1}) << '\n';
     return 0;
 }
