@@ -110,6 +110,30 @@ void Tensor::transpose()
     std::reverse(shape_.begin(), shape_.end());
 }
 
+Tensor &Tensor::operator*=(const Tensor &a)
+{
+    *this = *this * a;
+    return *this;
+}
+
+Tensor &Tensor::operator+=(const Tensor &a)
+{
+    *this = *this + a;
+    return *this;
+}
+
+Tensor &Tensor::operator-=(const Tensor &a)
+{
+    *this = *this - a;
+    return *this;
+}
+
+Tensor &Tensor::operator=(double b)
+{
+    std::fill(data_.begin(), data_.end(), b);
+    return *this;
+}
+
 std::size_t Tensor::flat_index(const std::vector<std::size_t> &idx) const
 {
     if (idx.size() != rank())
@@ -166,7 +190,8 @@ Tensor operator-(const Tensor &a, const Tensor &b)
         throw std::invalid_argument("Operands cannot be subtracted element wise");
     std::vector<double> data(a.numel());
     for (int i = 0; i < a.numel(); i++)
-        data[i] = a.data_[i] + b.data_[i];
+        data[i] = a.data_[i] - b.data_[i];
     Tensor out(a.shape(), data);
     return out;
 }
+

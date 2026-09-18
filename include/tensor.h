@@ -26,6 +26,11 @@ public:
     friend Tensor operator*(const Tensor &a, const Tensor &b);
     friend Tensor operator+(const Tensor &a, const Tensor &b);
     friend Tensor operator-(const Tensor &a, const Tensor &b);
+
+    Tensor &operator*=(const Tensor &a);
+    Tensor &operator+=(const Tensor &a);
+    Tensor &operator-=(const Tensor &a);
+    Tensor &operator=(double b);
 private:
     std::vector<std::size_t> shape_;
     std::vector<double> data_;
